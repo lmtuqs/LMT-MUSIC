@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Circle</title>
+    <style>
+        .progress-circle {
+            --percentage: 10%;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: conic-gradient(
+                green 0%,
+                green var(--percentage, 0%),
+                lightgray var(--percentage, 0%)
+            );
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: black;
+            position: relative;           
+        }
+        .progress-circle::before {
+            content: '';
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: white;
+        }
+        .progress-circle span {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-circle" id="progressCircle">
+        <span id="progressText">0%</span>
+    </div>
+    <input type="range" min="0" max="100" value="0" id="progressInput">
+
+    <script>
+        const progressCircle = document.getElementById('progressCircle');
+        const progressText = document.getElementById('progressText');
+        const progressInput = document.getElementById('progressInput');
+
+        progressInput.addEventListener('input', (event) => {
+            const value = event.target.value;
+            progressCircle.style.setProperty('--percentage', `${value}%`);
+            progressText.textContent = `${value}%`;
+        });
+
+        let percent = 0;
+        // const progress = setInterval(() => {
+        //     percent++;
+        //     progressCircle.style.setProperty('--percentage', `${percent}%`);
+        //     progressText.textContent = `${percent}%`;
+        //     if (percent == 100) clearInterval(progress);
+        // }, 1000);
+    </script>
+</body>
+</html>

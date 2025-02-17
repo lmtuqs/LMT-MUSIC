@@ -61,15 +61,17 @@ function getCrrTime() {
 
 function renderMenu() {
     
-    let html = ``
-    MenuData.forEach(item => {        
-        html += `<a href="${item.Href}" class="menu-item">
-                    <i class="fa-solid ${item.Icon ? item.Icon : "fa-tag"}"></i>
-                    <span>${item.Name}</span>
-                </a>`;
-    })
-
-    $("#menu").append(html)
+    if (MenuData) {
+        let html = ``
+        MenuData.forEach(item => {        
+            html += `<a href="${item.Href}" class="menu-item">
+                        <i class="fa-solid ${item.Icon ? item.Icon : "fa-tag"}"></i>
+                        <span>${item.Name}</span>
+                    </a>`;
+        })
+    
+        $("#menu").append(html)
+    }
 }
 
 renderMenu()

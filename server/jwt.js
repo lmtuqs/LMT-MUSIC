@@ -6,9 +6,7 @@ const LMT_JWT = {
 
     authenticate: (req, res, next) => {
 
-        const token = req.cookies[LMT_COOKIE.cookieName];  
-        
-        return next();
+        const token = req.cookies[LMT_COOKIE.cookieName];                
            
         if (!token) {
             return res.redirect('/login')            

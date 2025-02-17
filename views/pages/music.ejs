@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="/css/music/music.css">
+
+<div id="body">
+
+    <div class="player">
+        <!-- Dashboard -->
+        <div class="dashboard">
+          <!-- Header -->
+          <header>
+            <h4 id="album">Ca khúc:</h4>
+            <h2></h2>
+          </header>
+    
+          <!-- CD -->
+          <div class="cd-thumb"></div>         
+    
+          <!-- Control -->
+          <div class="control">
+    
+            <div class="btn btn-repeat">             
+              <img style="--size: 18px" class="off" src="./svg/status_repeat.svg">
+              <img style="--size: 18px" class="on" src="./svg/status_repeat_active.svg">
+            </div>
+    
+            <div class="btn btn-prev">
+              <img style="--size: 22px" src="./svg/status_previous.svg">              
+            </div>
+    
+            <div class="btn btn-toggle-play">
+              <img src="./svg/status_play.svg" class="icon-play">
+              <img src="./svg/status_stop.svg" class="icon-pause">             
+            </div>
+    
+            <div class="btn btn-next">            
+              <img style="--size: 22px" src="./svg/status_next.svg">
+            </div>
+    
+            <div class="btn btn-random">
+              <img style="--size: 15px" class="off" src="./svg/status_random.svg">
+              <img style="--size: 15px" class="on" src="./svg/status_random_active.svg">             
+            </div>
+    
+          </div>
+    
+          <!-- Progress -->
+          <div class="progress-wrapper">
+            <div class="progress-info">
+                <div>
+                    <button class="btn-volume" data-value="show">
+                      <i class="fa-solid fa-volume-low"></i>                       
+                    </button>
+                    <!-- <button class="btn-volume" data-value="true">
+                      <i class="fa-solid fa-volume-low"></i>                      
+                    </button>
+                    <button class="btn-volume" data-value="false">
+                        <i class="fa-solid fa-minus"></i>
+                    </button> -->
+                </div>
+
+                <div class="wrapper-seek">
+                    <button class="btn-seek" data-type="backward">
+                        <i class="fa-solid fa-backward"></i>
+                    </button>
+                    <span class="number-input" role="textbox" id="seek-value" contenteditable>5</span>
+                    <button class="btn-seek" data-type="forward">
+                        <i class="fa-solid fa-forward"></i>
+                    </button>
+                </div>
+
+                <span class="time-remain">0:00</span>
+            </div>
+            <input id="progress" class="progress progress-audio" type="range" value="0" step="1" min="0" max="100">      
+          </div>
+    
+          <!-- Control volume -->
+          <div class="control-volume">            
+            <input id="progress-volume" class="progress progress-volume" type="range" value="100" min="0" max="100" >           
+          </div>
+    
+          <audio id="audio" src=""></audio>
+        </div>
+    
+        <!-- Playlist -->
+        <div class="playlist"></div>
+    
+      </div>
+</div>
+
+<script src="/js/music/music.js"></script>  

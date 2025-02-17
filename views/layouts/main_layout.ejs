@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="LMT-MUSIC"/>
+    <meta property="og:description" content="Đắm chìm trong từng giai điệu"/>  
+    <meta property="og:url" content="https://lmt-music.vercel.app" />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1rv1zsU2w_wIwe50wgZy80dJXZhvjRaa2" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="LMT-MUSIC"/>
+    <link href="https://lh3.googleusercontent.com/d/1rv1zsU2w_wIwe50wgZy80dJXZhvjRaa2" rel="shortcut icon" type="image/x-icon">
+    <title>LMT-MUSIC | <%= title %></title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <link rel="stylesheet" href="/css/layout/root.css"/>   
+    <%- style %>
+</head>
+<body class="mode-mobile">
+
+    <div id="root">
+        <div id="header">
+            <i class="fa-solid fa-bars" id="btn-open-menu"></i>
+            <div class="heading"><%= title %></div>            
+        </div>
+        <%- body %>   
+        <div class="overlay menu" id="overlay-menu">
+            <div id="menu">
+                <div class="heading">
+                    <img src="https://lh3.googleusercontent.com/d/1rv1zsU2w_wIwe50wgZy80dJXZhvjRaa2">
+                    <span>LMT-MUSIC</span>
+                    <i class="fa-solid fa-rotate-right" id="btn-reload"></i>
+                </div>               
+            </div>
+        </div>      
+    </div>
+
+    <script src="/lib/jquery.min.js"></script>        
+    <script src="/js/data.js"></script>    
+    <script src="/js/layout/root.js"></script>    
+    <%- script %>      
+</body>
+</html>

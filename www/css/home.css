@@ -1,0 +1,64 @@
+/* #region [ Topic ] */
+
+.container {
+    --distance: 12px;   
+    padding: var(--distance);
+}
+  
+  .item {
+    --color-title: #333;
+    --color-description: #999;
+
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--distance);
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .item.active {
+    background-color: var(--primary-color);
+  }    
+  
+  .item.active * {
+    color: #fff !important;
+  }
+  
+  .item .thumb {
+    --size-thumb: 44px;
+    width: var(--size-thumb);
+    height: var(--size-thumb);
+    border-radius: 50%;
+    background-size: cover;
+    margin-right: 8px;
+  }
+  
+  .item .body {
+    flex: 1;
+    padding: 0 16px;
+  }
+  
+  .item .title {
+    font-size: 14px;
+    color: var(--color-title);
+    text-transform: capitalize;
+  }
+  
+  .item .author {
+    font-size: 13px;
+    color: var(--color-description);
+  }
+  
+  .item .option {
+    padding: 16px 8px;
+    color: var(--color-description);
+    font-size: 18px;
+  }
+/* #endregion */

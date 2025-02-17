@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <meta property="og:title" content="LMT-MUSIC"/>
+    <meta property="og:description" content="Đắm chìm trong từng giai điệu"/>  
+    <meta property="og:url" content="https://lmt-music.vercel.app" />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1rv1zsU2w_wIwe50wgZy80dJXZhvjRaa2" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="LMT-MUSIC"/>
+    <link href="https://lh3.googleusercontent.com/d/1rv1zsU2w_wIwe50wgZy80dJXZhvjRaa2" rel="shortcut icon" type="image/x-icon">
+    <title>LMT-MUSIC | <%= title %></title>    
+    <link rel="stylesheet" href="/css/layout/root.css"/>
+    <link rel="stylesheet" href="/css/layout/auth_layout.css"/>
+    <%- style %>
+</head>
+<body class="mode-mobile">
+
+    <div id="root">
+        <img id="img-logo" src="https://lh3.googleusercontent.com/d/1rv1zsU2w_wIwe50wgZy80dJXZhvjRaa2">
+        <h2>LMT-MUSIC</h2>
+        <p class="desc">Đắm Chìm Trong Từng Giai Điệu</p>
+        <%- body %>         
+    </div>
+
+    <script src="/lib/jquery.min.js"></script>   
+    <script src="/js/layout/root.js"></script>   
+    <%- script %>      
+</body>
+</html>

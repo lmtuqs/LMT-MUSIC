@@ -1,0 +1,194 @@
+/* #region [ Reset ] */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    scrollbar-width: none;
+}
+
+a {
+    text-decoration: none;
+    color: initial;
+}
+/* #endregion */
+
+/* #region [ Root ] */
+:root {
+    --standard-padding: 15px;
+    --primary-color: rgb(0, 145, 255);
+    --secondary-color: #c0e3fe;
+    --distance: 20px;
+}
+/* #endregion */
+
+/* #region [ Layout ] */
+body.mode-mobile {
+    display: flex;
+    justify-content: center;
+    background-color: #1f1f1f;
+}
+
+body.mode-mobile > * {
+    max-width: 365px;
+}
+
+#root {
+    height: 100vh;
+    width: 100vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: scroll;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    padding: var(--standard-padding);
+}
+
+#body {   
+    flex: 1;
+    overflow: scroll;     
+}
+/* #endregion */
+
+/* #region [ Header ] */
+#header i {
+    padding: var(--standard-padding);
+    cursor: pointer;
+    position: absolute;
+    left: 0;
+}
+/* #endregion */
+
+/* #region [ Overlay ] */
+.overlay {
+    --distance: 20px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    padding: var(--distance); 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.overlay.menu {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0;
+    justify-content: flex-start;
+}
+
+.overlay.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+#btn-close-overlay {
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: var(--distance); 
+    left: var(--distance); 
+    font-size: 20px;
+    cursor: pointer;
+}
+/* #endregion */
+
+/* #region [ Modal ] */
+.overlay.modal > .box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid grey;
+    box-shadow: 1px 1px 4px #3e3e3e;
+    width: 65%;
+    overflow: hidden;
+}
+
+.overlay.modal p {
+    margin: 10px 0 15px 0;
+}
+
+.overlay.modal img {
+    height: 60px;
+}
+
+.overlay.modal button {
+    background: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.overlay.modal #btn-update,
+.overlay.modal #btn-remove {
+    width: 100%;
+    margin: 5px 0;
+}
+
+.overlay.modal #btn-remove {
+    background-color: red;
+}
+
+/* #endregion */
+
+/* #region [ Menu ] */
+
+#menu {
+    background-color: #fff;
+    width: 80%;
+    height: 100%;
+}
+
+#menu .heading {
+    display: flex;
+    padding: 8px 20px;
+    border-bottom: 1px solid var(--primary-color);
+    align-items: center;
+    position: relative;
+}
+
+#menu .heading img {
+    margin-right: 10px;   
+    width: 34px; 
+}
+
+#menu .heading #btn-reload {
+    position: absolute;
+    right: 0;   
+    padding: 20px;
+}
+
+.menu-item {
+    padding: 12px 20px;
+    font-size: 16px;
+    display: flex;
+}
+
+.menu-item i {
+    margin-right: 8px;
+}
+
+/* #endregion */

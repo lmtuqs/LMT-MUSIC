@@ -74,8 +74,6 @@ function renderMenu() {
     }
 }
 
-renderMenu()
-
 // #endregion
 
 // #region [ Events ]

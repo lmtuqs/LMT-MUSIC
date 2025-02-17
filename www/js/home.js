@@ -29,8 +29,9 @@ function renderData() {
 
 // #region [ Start App ]
 
-function startApp() {
-   renderData();
+function startApp() {    
+    renderMenu()
+    renderData();
 }
 
 startApp();

@@ -409,7 +409,9 @@ const app = {
         this.loadCurrentSong();
     },
     
-    start: function() {        
+    start: function() { 
+                
+        renderMenu();
 
         // Gán cấu hình config vào object app
         this.loadConfig();

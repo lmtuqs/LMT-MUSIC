@@ -76,6 +76,8 @@ const topics = [
         id: "HSK3",
         name: "Bài Nghe Đề HSK3",
         audios: [
+            { "name": "HSKK3 đề 9", "singer": "HSK3", "id": "HSKJ3DE9" },
+            { "name": "HSKK3 đề 10", "singer": "HSK3", "id": "HSKK3DE10" },
             { "name": "HSK3 đề 4", "singer": "HSK3", "id": "HSK3DE4" },
             { "name": "HSK3 đề 5", "singer": "HSK3", "id": "HSK3DE5" },
             { "name": "HSK3 đề 7", "singer": "HSK3", "id": "HSK3DE7" },

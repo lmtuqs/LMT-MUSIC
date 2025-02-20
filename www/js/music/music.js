@@ -358,6 +358,7 @@ const app = {
                     _this.currentIndex = index;
 
                     _this.loadCurrentSong();
+                    _this.scrollToActiveSong();
 
                     audio.currentTime = item.currentSongTime;
                 };

@@ -190,6 +190,8 @@
     --distance: 12px;
     margin-top: 348px;
     padding: var(--distance);
+    height: calc(100vh - 348px);
+    overflow: scroll;
   }
   
   .song {

@@ -28,14 +28,17 @@ const audio = $('#audio')[0];
 const playlist = $('.playlist')[0];
 
 const PLAYER_STORAGE_KEY = 'LMT-MUSIC-Player'
+const HISTORY_STORAGE_KEY = 'LMT-MUSIC-History'
 
 const app = {
     currentIndex: 0,
+    topicID: location.search.split("=")[1],
     isPlaying: false,
     isRandom: false,
     isRepeat: false,
     randomPlaylist: [],
     config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    history: JSON.parse(localStorage.getItem(HISTORY_STORAGE_KEY)) || {},
     setConfig: function(key, value) {
         this.config[key] = value;
         localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config))
@@ -50,12 +53,12 @@ const app = {
                         <div class="thumb" style="background-image: url('/img/music/${imgPath}.png')"></div>
                 
                         <div class="body">
-                        <h3 class="title">${song.name}</h3>
-                        <p class="author">${song.singer}</p>
+                            <h3 class="title">${song.name}</h3>
+                            <p class="author">${song.singer}</p>
                         </div>
                         
                         <div class="option">
-                        <i class="fas fa-ellipsis-h"></i>
+                            <i class="fas fa-ellipsis-h"></i>
                         </div>
       
                     </div>`;                    
@@ -68,7 +71,7 @@ const app = {
     },
 
     handleEvents: function() {  
-        _this = this;              
+        _this = this;                       
 
         // Xử lý CD quay / dừng
         const cdThumbAnimate = cdThumb.animate([
@@ -100,8 +103,22 @@ const app = {
             audio.volume = volumeValue;
             
             const songs = $$('.song');
-            songs[_this.currentIndex].classList.add('active');                 
+            songs[_this.currentIndex].classList.add('active');                        
         }
+
+        // Save history 
+        let intervalSaveHistory = setInterval(() => {
+            
+            if (_this.isPlaying) {
+                _this.history[_this.topicID] = {
+                    currentSongID: _this.currentSong.id,
+                    currentSongTime: audio.currentTime
+                }         
+                
+                localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(_this.history));                
+            }
+
+        }, 1000);        
 
         // Khi bài hát dừng
         audio.onpause = function() {
@@ -326,12 +343,38 @@ const app = {
         }
     },
 
+    loadHistory: function() {
+        _this = this;
+
+        if (_this.topicID && _this.history[_this.topicID]) {   
+            
+            console.log(_this.history);
+            
+            
+            let item = _this.history[_this.topicID];
+            _this.songs.forEach((song, index) => {
+                if (song.id == item.currentSongID) {
+
+                    _this.currentIndex = index;
+
+                    _this.loadCurrentSong();
+
+                    audio.currentTime = item.currentSongTime;
+                };
+            });            
+
+        } else {           
+            _this.loadCurrentSong();
+        }
+    },
+
     loadConfig: function() {    
         
-        // Get audio list
-        const id = location.search.split("=")[1];
-        
-        if (id) this.songs = topics.filter(topic => topic.id == id)[0].audios;        
+        // Get audio list       
+        if (this.topicID) {
+            let topic = topics.filter(topic => topic.id == this.topicID)[0];
+            this.songs = topic.audios;                            
+        }                              
         
         this.isRandom = this.config.isRandom;
         if (this.isRandom == true) {
@@ -421,9 +464,9 @@ const app = {
 
         // Lắng nghe / xử lý sự kiện (DOM Events)
         this.handleEvents();
-
-        // Tải lên thông tin bài hát đầu tiên lên UI 
-        this.loadCurrentSong();        
+       
+        // Load history
+        this.loadHistory();
 
         // Render playlist
         this.render();
